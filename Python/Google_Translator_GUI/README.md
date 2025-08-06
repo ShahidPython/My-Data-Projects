@@ -15,7 +15,7 @@ A Python GUI application that translates text between multiple languages using G
 ---
 
 ## 📂 Project Structure
-
+```
 Google_Translator_GUI/
 ├── main.py
 ├── README.md
@@ -24,7 +24,7 @@ Google_Translator_GUI/
     ├── google.png
     ├── arrows.png
     └── screenshot.png
-
+```
 ---
 
 ## ▶️ How to Run
@@ -91,5 +91,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
