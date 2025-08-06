@@ -15,13 +15,13 @@ A clean, modern calculator application with a dark theme interface. Built with P
 ---
 
 ## 📂 Project Structure
-
+```
 `Simple_Calculator_GUI/`  
 ├── assets/  
 │   └── screenshot.png
 ├── main.py  
 └── README.md  
-
+```
 ---
 
 ## ▶️ How to Run
@@ -78,5 +78,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
