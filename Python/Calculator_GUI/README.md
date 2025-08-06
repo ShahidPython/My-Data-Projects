@@ -13,16 +13,14 @@ A visually appealing calculator app with circular buttons, hover effects, and th
 - ✨ **Visual Feedback**: Buttons flash when clicked and change color on hover
 
 ---
-
-## 📂 Project Structure
-
-`Calculator_GUI`/
+```
+Calculator_GUI/
 ├── assets/
 │   └── screenshot.png
 ├── main.py
 ├── README.md
 └── requirements.txt
-
+```
 ---
 
 ## ▶️ How to Run
@@ -92,3 +90,4 @@ Feel free to connect and collaborate!
 
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
+
