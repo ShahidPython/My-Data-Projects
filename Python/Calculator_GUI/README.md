@@ -16,11 +16,11 @@ A visually appealing calculator app with circular buttons, hover effects, and th
 
 ## 📂 Project Structure
 
-`Calculator_GUI/`  
+`Calculator_GUI`/
 ├── assets/
-│   └── screenshot.png  
-├── main.py  
-├── README.md    
+│   └── screenshot.png
+├── main.py
+├── README.md
 └── requirements.txt
 
 ---
@@ -89,5 +89,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
