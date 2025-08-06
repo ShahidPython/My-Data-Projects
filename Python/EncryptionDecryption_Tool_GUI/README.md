@@ -15,13 +15,13 @@ A secure message encryption and decryption application that uses base64 encoding
 ---
 
 ## 📂 Project Structure
-
+```
 `EncryptionDecryption_Tool_GUI/`  
 ├── assets/
 │   └── screenshot.png  
 ├── main.py  
 └── README.md  
-
+```
 ---
 
 ## ▶️ How to Run
@@ -76,5 +76,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
