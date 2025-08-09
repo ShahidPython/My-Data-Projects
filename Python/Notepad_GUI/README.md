@@ -15,7 +15,7 @@ A lightweight notepad application that allows you to **create, open, and save te
 
 ## ▶️ How to Run
 
-1. **Ensure Python 3.x is installed**
+1. **Ensure Python 3.10 is installed**
 2. **Run the application:**
 
 ```bash
@@ -74,5 +74,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
