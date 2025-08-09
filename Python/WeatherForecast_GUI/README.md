@@ -31,7 +31,7 @@ A modern weather application that provides real-time weather data for any city w
 
 ## ▶️ How to Run
 
-1. **Install Python 3.7 or higher**
+1. **Install Python 3.10**
 2. **Install dependencies:**
 
 ```bash
@@ -104,5 +104,6 @@ Weather data provided by OpenWeatherMap
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
