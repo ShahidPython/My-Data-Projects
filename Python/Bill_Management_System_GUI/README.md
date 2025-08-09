@@ -29,7 +29,7 @@ Bill_Management_System_GUI/
 
 ## ▶️ How to Run
 
-1. Make sure Python 3.7+ is installed
+1. Make sure Python 3.10 is installed
 ```bash
 
 python main.py
@@ -98,5 +98,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
