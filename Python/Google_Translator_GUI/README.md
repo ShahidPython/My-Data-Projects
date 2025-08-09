@@ -29,7 +29,7 @@ Google_Translator_GUI/
 
 ## ▶️ How to Run
 
-1. **Install Python 3.7 or higher**
+1. **Install Python 3.10**
 2. **Install dependencies:**
 
 ```bash
@@ -94,3 +94,4 @@ Feel free to connect and collaborate!
 
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
+
