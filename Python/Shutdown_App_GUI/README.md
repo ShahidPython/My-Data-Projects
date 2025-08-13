@@ -16,7 +16,7 @@ A simple yet effective system control app built with Python's Tkinter library. I
 ---
 
 ## 📂 Project Structure
-
+```
 Shutdown_App_GUI/
 ├── assets/  
 │   ├── restart_time.png  
@@ -28,7 +28,7 @@ Shutdown_App_GUI/
 ├── main.py  
 ├── requirements.txt  
 └── README.md  
-
+```
 ---
 
 ## ▶️ How to Run
@@ -84,5 +84,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
