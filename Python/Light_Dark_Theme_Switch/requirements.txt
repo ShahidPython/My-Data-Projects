@@ -1,0 +1,2 @@
+# Requirements for Theme Toggle App
+# No external libraries required – only built-in modules used
