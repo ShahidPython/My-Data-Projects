@@ -15,7 +15,7 @@ A sleek and simple theme switcher built with Python's Tkinter library. Users can
 ---
 
 ## 📂 Project Structure
-
+```
 24_Theme_Toggle_Switch/  
 ├── assets/  
 │   ├── light.png  
@@ -24,7 +24,7 @@ A sleek and simple theme switcher built with Python's Tkinter library. Users can
 ├── main.py  
 ├── requirements.txt  
 └── README.md  
-
+```
 ---
 
 ## ▶️ How to Run
@@ -85,5 +85,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
