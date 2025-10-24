@@ -17,7 +17,8 @@ A professional internet speed testing application built using Python’s `tkinte
 
 ## 📂 Project Structure
 
-`26_Internet_Speed_Test/`  
+`Internet_Speed_Test/`
+```
 ├── assets/  
 │   ├── logo.png  
 │   ├── top.png  
@@ -27,7 +28,7 @@ A professional internet speed testing application built using Python’s `tkinte
 ├── main.py  
 ├── requirements.txt  
 └── README.md  
-
+```
 ---
 
 ## ▶️ How to Run
@@ -95,5 +96,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
