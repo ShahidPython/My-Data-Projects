@@ -16,8 +16,8 @@ A professional screen recording application built with Python’s Tkinter librar
 ---
 
 ## 📂 Project Structure
-
-`25_Screen_Recorder/`  
+```
+`Screen_Recorder_GUI/`  
 ├── assets/  
 │   ├── icon.png  
 │   ├── yellow.png  
@@ -31,7 +31,7 @@ A professional screen recording application built with Python’s Tkinter librar
 ├── main.py  
 ├── requirements.txt  
 └── README.md  
-
+```
 ---
 
 ## ▶️ How to Run
@@ -98,5 +98,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
