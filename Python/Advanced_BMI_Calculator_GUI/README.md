@@ -1,4 +1,4 @@
-# ✅ BMI Calculator App (Python + Tkinter GUI)
+# ⚖️ BMI Calculator App (Python + Tkinter GUI)
 
 A beginner-friendly, interactive **Body Mass Index (BMI)** calculator built using `tkinter`, `Pillow`, and custom image assets. This app allows users to **input height and weight**, calculates BMI in real-time using sliders, and visually adjusts a character image based on height.
 
@@ -7,7 +7,7 @@ A beginner-friendly, interactive **Body Mass Index (BMI)** calculator built usin
 ## 📌 Features
 
 - 📊 **BMI Calculation**: Automatically computes BMI from height (cm) and weight (kg).
-- 🧍 **Animated Character Image**: Height changes are reflected visually on screen.
+- 🧍 **Animated Character Image**: Character position changes based on height selection.
 - 🎨 **Custom-Styled UI**: Built with icons, themed backgrounds, and intuitive layout.
 - 🎚️ **Sliders for Input**: Smooth sliders for height and weight selection.
 - 📋 **Result Display**: Shows BMI value, health category, and helpful tips.
@@ -55,7 +55,7 @@ python main.py
 3. BMI Calculation
     - The BMI is computed using the standard formula and shown with status text.
 4. Animated Visual
-    - A character image dynamically resizes based on height input, visualizing the change.
+    - The character image moves vertically based on height input, providing visual feedback.
 
 ---
 
@@ -90,5 +90,6 @@ Feel free to connect and collaborate!
 ---
 
 ## 📄 License
+
 
 This project is licensed under the MIT License – free to use, modify, and distribute.
