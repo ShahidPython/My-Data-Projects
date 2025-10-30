@@ -1,0 +1,4 @@
+pyfiglet==1.0.2
+simple-chalk==0.1.0
+pillow==10.0.1
+sv-ttk==2.6.1
