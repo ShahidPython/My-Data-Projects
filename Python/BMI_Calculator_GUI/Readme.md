@@ -46,23 +46,20 @@ Dependencies
 sv-ttk>=2.0
 ```
 💻 Usage
-GUI Mode (Recommended)
-bash
 
+GUI Mode
+```
 python bmi_calculator.py
-
+```
 CLI Mode
-
 Metric Units:
-bash
-
+```
 python bmi_calculator.py --units metric --weight 70 --height 175
-
+```
 Imperial Units:
-bash
-
+```
 python bmi_calculator.py --units imperial --weight 154 --height 68
-
+```
 🖥️ GUI Overview
 Input Section
 
@@ -116,50 +113,6 @@ Code Quality
 
     Professional documentation
 
-📊 BMI Classification System
-Category	BMI Range	Color	Health Risk
-Severe Thinness	< 16	#3498db	High
-Moderate Thinness	16 - 17	#5dade2	Moderate
-Mild Thinness	17 - 18.5	#85c1e9	Mild
-Normal Range	18.5 - 25	#2ecc71	Low
-Overweight	25 - 30	#f39c12	Increased
-Obese Class I	30 - 35	#e67e22	High
-Obese Class II	35 - 40	#d35400	Very High
-Obese Class III	≥ 40	#c0392b	Extremely High
-🎨 Customization
-Theme Modification
-python
-
-# Switch to light theme
-sv_ttk.set_theme("light")
-
-# Custom color scheme
-def classify_bmi(bmi):
-    if bmi < 18.5:
-        return "Underweight", "#your-custom-color"
-
-Adding Features
-
-The modular architecture makes it easy to extend:
-
-    New unit systems
-
-    Additional health metrics
-
-    Custom themes and styling
-
-    Data export capabilities
-
-🤝 Contributing
-
-We welcome contributions! Please see our contributing guidelines for:
-
-    Bug reports and feature requests
-
-    Code style and pull request process
-
-    Development environment setup
-
 📝 License
 
 MIT License - feel free to use this project for personal or commercial purposes.
@@ -171,4 +124,4 @@ This software provides general health information for educational purposes only.
 Built with ❤️ using Python, tkinter, and modern UI principles
 
 Precision meets design in health calculation
-</div> ```
+</div> 
