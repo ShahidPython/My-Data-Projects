@@ -36,15 +36,15 @@ A professional-grade Body Mass Index calculator with dual CLI/GUI interfaces, fe
 # Clone repository
 git clone https://github.com/yourusername/bmi-calculator-pro.git
 cd bmi-calculator-pro
-
+```
 # Install dependencies
+```
 pip install -r requirements.txt
-
+```
 Dependencies
-txt
-
+```
 sv-ttk>=2.0
-
+```
 💻 Usage
 GUI Mode (Recommended)
 bash
