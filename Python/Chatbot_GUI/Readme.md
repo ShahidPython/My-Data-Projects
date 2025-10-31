@@ -1,8 +1,10 @@
 ChatPy - Intelligent Assistant 🤖
 
 ChatPy is a versatile intelligent assistant that provides both command-line (CLI) and graphical (GUI) interfaces for natural conversations, information retrieval, and entertainment.
+
 Features ✨
-🤖 Intelligent Conversations
+    
+    🤖 Intelligent Conversations
 
     Context-aware responses using Microsoft's DialoGPT model
 
@@ -72,22 +74,21 @@ brew install python-tk
 
 File Structure
 Ensure you have these files in your project directory:
-text
-
+```
 chatpy/
 ├── main.py
 ├── responses.py
 └── assets/
     └── icon.png (optional)
-
+```
 Usage 🚀
+
 Starting ChatPy
 
 Run the main script:
-bash
-
+```
 python main.py
-
+```
 Interface Selection
 
 You'll be prompted to choose your preferred interface:
@@ -204,7 +205,6 @@ Common Issues
         Consider using CPU-optimized models for low-resource systems
 
     Missing dependencies
-    bash
 
 # Reinstall all dependencies
 pip install --upgrade transformers torch pillow pyfiglet requests
