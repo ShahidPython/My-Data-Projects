@@ -1,0 +1,8 @@
+alice@example.com
+bob+junk@gmail.com
+invalid-email
+x@mail.google.co.uk
+test@mailinator.com
+user@yahoo.com
+admin@company.co.uk
+support@sub.domain.com
