@@ -1,0 +1,177 @@
+# Web Scraper to SQLite - Production Docker Compose
+# =================================================
+
+version: '3.8'
+
+services:
+  # Main ETL Pipeline Service
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web-scraper-etl
+    image: web-scraper-sqlite:latest
+    
+    # Environment configuration
+    environment:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+      - DATABASE_URL=sqlite:///data/scraped_data.db
+      - CACHE_ENABLED=true
+      - RATE_LIMIT=10
+      
+    # Command override examples (uncomment as needed):
+    # command: python main.py --url https://example-store.com/products --verbose
+    # command: python main.py --url file://./data/input/example.html --limit 50 --dry-run
+    # command: pytest tests/ -v --cov=src --cov-report=html
+    
+    # Volumes for data persistence
+    volumes:
+      - ./data:/app/data  # Database and input files
+      - ./logs:/app/logs  # Application logs
+      - ./reports:/app/reports  # Generated reports
+      - scraped-data:/app/data/cache  # Named volume for cache
+      
+    # Health check
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sqlite3; conn = sqlite3.connect('/app/data/scraped_data.db'); print('Database OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+      
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+          
+    # Restart policy
+    restart: unless-stopped
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        
+    # Security
+    user: "1000:1000"  # Run as non-root
+    read_only: true  # Read-only filesystem (except volumes)
+    tmpfs:
+      - /tmp  # Temporary files in memory
+
+  # PostgreSQL Database (Optional - for scaling)
+  postgres:
+    image: postgres:15-alpine
+    container_name: web-scraper-postgres
+    environment:
+      - POSTGRES_DB=scraped_data
+      - POSTGRES_USER=scraper
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-changeme123}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U scraper"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    profiles:
+      - postgres
+      
+  # Redis Cache (Optional - for performance)
+  redis:
+    image: redis:7-alpine
+    container_name: web-scraper-redis
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redispass123}
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    profiles:
+      - redis
+      
+  # Monitoring Dashboard (Prometheus + Grafana)
+  monitoring:
+    image: docker.io/grafana/grafana:10.1.0
+    container_name: web-scraper-monitoring
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin123}
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/datasources:/etc/grafana/provisioning/datasources
+    ports:
+      - "3000:3000"
+    depends_on:
+      scraper:
+        condition: service_healthy
+    restart: unless-stopped
+    profiles:
+      - monitoring
+      
+  # API Service (Optional - REST API for data access)
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api  # Would need separate Dockerfile
+    container_name: web-scraper-api
+    environment:
+      - DATABASE_URL=sqlite:///data/scraped_data.db
+      - API_KEY=${API_KEY:-your-api-key-here}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      scraper:
+        condition: service_healthy
+    restart: unless-stopped
+    profiles:
+      - api
+
+# Development Override (separate file: docker-compose.override.yml)
+# x-dev-settings: &dev-settings
+#   environment:
+#     - ENVIRONMENT=development
+#     - LOG_LEVEL=DEBUG
+#   volumes:
+#     - ./src:/app/src  # Live code reload
+#   command: python main.py --url file://./data/input/example.html --verbose --dry-run
+
+# Named volumes for data persistence
+volumes:
+  scraped-data:  # For scraper cache
+    driver: local
+  postgres-data:  # For PostgreSQL
+    driver: local
+  redis-data:  # For Redis
+    driver: local
+  grafana-data:  # For Grafana
+    driver: local
+
+# Networks for service isolation
+networks:
+  default:
+    name: web-scraper-network
+    driver: bridge
+  monitoring:
+    name: monitoring-network
+    driver: bridge

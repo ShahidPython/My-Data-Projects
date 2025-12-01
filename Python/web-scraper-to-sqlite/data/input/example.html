@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Products - Sample Data</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh; padding: 40px; 
+        }
+        .container { 
+            max-width: 1400px; margin: 0 auto; 
+            background: white; border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header { 
+            background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+            color: white; padding: 30px; text-align: center;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .stats { 
+            display: flex; justify-content: center; gap: 30px;
+            margin-top: 20px; 
+        }
+        .stat-box { 
+            background: rgba(255,255,255,0.2); padding: 15px 25px;
+            border-radius: 10px; backdrop-filter: blur(10px);
+        }
+        .products-grid { 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px; padding: 40px;
+        }
+        .product-card { 
+            border: 2px solid #e0e6ef; border-radius: 15px;
+            padding: 25px; transition: all 0.3s ease;
+            position: relative; overflow: hidden;
+        }
+        .product-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.2);
+            border-color: #4facfe;
+        }
+        .product-card.featured { border-color: #ff6b6b; }
+        .product-card.discounted::before {
+            content: 'SALE'; position: absolute; top: 15px; right: -30px;
+            background: #ff4757; color: white; padding: 5px 40px;
+            transform: rotate(45deg); font-weight: bold;
+        }
+        .product-title { 
+            font-size: 1.4rem; color: #2c3e50; 
+            margin-bottom: 10px; 
+        }
+        .product-price { 
+            font-size: 1.8rem; color: #27ae60; 
+            font-weight: bold; margin: 15px 0;
+        }
+        .product-price.old { 
+            color: #95a5a6; text-decoration: line-through;
+            font-size: 1.2rem; 
+        }
+        .product-category { 
+            display: inline-block; background: #f8f9fa;
+            padding: 5px 15px; border-radius: 20px;
+            color: #6c757d; font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .product-rating { 
+            color: #f39c12; font-size: 1rem;
+            margin: 10px 0;
+        }
+        .product-stock { 
+            font-size: 0.9rem; padding: 5px 10px;
+            border-radius: 5px; margin-top: 10px;
+            display: inline-block;
+        }
+        .in-stock { background: #d4edda; color: #155724; }
+        .low-stock { background: #fff3cd; color: #856404; }
+        .product-description { 
+            color: #7f8c8d; margin-top: 15px;
+            line-height: 1.5; font-size: 0.95rem;
+        }
+        .product-meta { 
+            display: flex; justify-content: space-between;
+            margin-top: 20px; padding-top: 15px;
+            border-top: 1px solid #eee; color: #95a5a6;
+            font-size: 0.85rem;
+        }
+        footer { 
+            text-align: center; padding: 30px;
+            background: #f8f9fa; color: #6c757d;
+            border-top: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏪 E-Commerce Analytics Dashboard</h1>
+            <p>Sample Product Data for Web Scraping & ETL Pipeline Testing</p>
+            <div class="stats">
+                <div class="stat-box">📊 Total Products: <strong>12</strong></div>
+                <div class="stat-box">💰 Avg Price: <strong>$89.99</strong></div>
+                <div class="stat-box">🏷️ Categories: <strong>5</strong></div>
+                <div class="stat-box">⭐ Avg Rating: <strong>4.2</strong></div>
+            </div>
+        </header>
+
+        <main>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card featured">
+                    <span class="product-category">📱 Electronics</span>
+                    <h3 class="product-title">iPhone 15 Pro Max</h3>
+                    <div class="product-rating">⭐⭐⭐⭐⭐ (4.8)</div>
+                    <div class="product-price">$1,199.99</div>
+                    <span class="product-stock in-stock">In Stock (45 units)</span>
+                    <p class="product-description">Latest Apple flagship with Titanium design, A17 Pro chip, and 5x optical zoom.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: APP-IP15-PRO</span>
+                        <span>📅 Added: 2023-09-15</span>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card discounted">
+                    <span class="product-category">👕 Fashion</span>
+                    <h3 class="product-title">Premium Leather Jacket</h3>
+                    <div class="product-rating">⭐⭐⭐⭐ (4.3)</div>
+                    <div class="product-price">$149.99</div>
+                    <div class="product-price old">$199.99</div>
+                    <span class="product-stock low-stock">Low Stock (3 units)</span>
+                    <p class="product-description">Genuine leather jacket with thermal lining and multiple pockets.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: FASH-LJ-2024</span>
+                        <span>📅 Added: 2024-01-10</span>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <span class="product-category">📚 Books</span>
+                    <h3 class="product-title">Data Science Handbook</h3>
+                    <div class="product-rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                    <div class="product-price">$49.99</div>
+                    <span class="product-stock in-stock">In Stock (120 units)</span>
+                    <p class="product-description">Complete guide to Python, SQL, and Machine Learning for professionals.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: BOOK-DS-2024</span>
+                        <span>📅 Added: 2023-11-22</span>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <span class="product-category">🏠 Home</span>
+                    <h3 class="product-title">Smart Air Purifier</h3>
+                    <div class="product-rating">⭐⭐⭐⭐ (4.1)</div>
+                    <div class="product-price">$299.99</div>
+                    <span class="product-stock in-stock">In Stock (28 units)</span>
+                    <p class="product-description">HEPA filter with IoT connectivity and air quality monitoring.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: HOME-AP-SMART</span>
+                        <span>📅 Added: 2024-02-05</span>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card discounted">
+                    <span class="product-category">💻 Electronics</span>
+                    <h3 class="product-title">Gaming Laptop RTX 4090</h3>
+                    <div class="product-rating">⭐⭐⭐⭐ (4.5)</div>
+                    <div class="product-price">$2,499.99</div>
+                    <div class="product-price old">$2,999.99</div>
+                    <span class="product-stock in-stock">In Stock (12 units)</span>
+                    <p class="product-description">16" 240Hz display, Intel i9, 64GB RAM, 2TB SSD for ultimate gaming.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: ELEC-GL-4090</span>
+                        <span>📅 Added: 2023-12-18</span>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <span class="product-category">🏋️ Fitness</span>
+                    <h3 class="product-title">Smart Fitness Watch</h3>
+                    <div class="product-rating">⭐⭐⭐⭐ (4.0)</div>
+                    <div class="product-price">$199.99</div>
+                    <span class="product-stock low-stock">Low Stock (5 units)</span>
+                    <p class="product-description">Heart rate monitoring, GPS, sleep tracking, and 7-day battery.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: FIT-SWATCH-PRO</span>
+                        <span>📅 Added: 2024-01-30</span>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <span class="product-category">🍳 Kitchen</span>
+                    <h3 class="product-title">Air Fryer Pro</h3>
+                    <div class="product-rating">⭐⭐⭐⭐ (4.2)</div>
+                    <div class="product-price">$89.99</div>
+                    <span class="product-stock in-stock">In Stock (67 units)</span>
+                    <p class="product-description">Digital air fryer with 8 presets and rapid air technology.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: KIT-AF-PRO-8Q</span>
+                        <span>📅 Added: 2023-10-14</span>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card featured">
+                    <span class="product-category">🎮 Gaming</span>
+                    <h3 class="product-title">PlayStation 5 Pro</h3>
+                    <div class="product-rating">⭐⭐⭐⭐⭐ (4.7)</div>
+                    <div class="product-price">$599.99</div>
+                    <span class="product-stock low-stock">Low Stock (8 units)</span>
+                    <p class="product-description">Next-gen gaming console with 8K support and ray tracing.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: GAME-PS5-PRO</span>
+                        <span>📅 Added: 2023-11-05</span>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <span class="product-category">🛋️ Furniture</span>
+                    <h3 class="product-title">Ergonomic Office Chair</h3>
+                    <div class="product-rating">⭐⭐⭐⭐ (4.4)</div>
+                    <div class="product-price">$349.99</div>
+                    <span class="product-stock in-stock">In Stock (34 units)</span>
+                    <p class="product-description">Lumbar support, adjustable arms, and breathable mesh.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: FURN-CHAIR-ERG</span>
+                        <span>📅 Added: 2024-02-12</span>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card discounted">
+                    <span class="product-category">📱 Electronics</span>
+                    <h3 class="product-title">Wireless Earbuds</h3>
+                    <div class="product-rating">⭐⭐⭐⭐ (4.1)</div>
+                    <div class="product-price">$79.99</div>
+                    <div class="product-price old">$129.99</div>
+                    <span class="product-stock in-stock">In Stock (89 units)</span>
+                    <p class="product-description">Noise cancellation, 30-hour battery, and waterproof design.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: ELEC-EB-PRO</span>
+                        <span>📅 Added: 2023-12-03</span>
+                    </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card">
+                    <span class="product-category">🧴 Beauty</span>
+                    <h3 class="product-title">Skincare Set</h3>
+                    <div class="product-rating">⭐⭐⭐⭐ (4.3)</div>
+                    <div class="product-price">$69.99</div>
+                    <span class="product-stock in-stock">In Stock (56 units)</span>
+                    <p class="product-description">Complete facial care routine with natural ingredients.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: BEAUT-SKIN-PRO</span>
+                        <span>📅 Added: 2024-01-25</span>
+                    </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-card">
+                    <span class="product-category">🚗 Automotive</span>
+                    <h3 class="product-title">Car Dash Cam</h3>
+                    <div class="product-rating">⭐⭐⭐⭐ (4.0)</div>
+                    <div class="product-price">$129.99</div>
+                    <span class="product-stock low-stock">Low Stock (6 units)</span>
+                    <p class="product-description">4K recording, night vision, and collision detection.</p>
+                    <div class="product-meta">
+                        <span>🆔 SKU: AUTO-DCAM-4K</span>
+                        <span>📅 Added: 2023-11-30</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>📊 <strong>Data Summary:</strong> This page contains 12 products across 8 categories with varied pricing and stock levels.</p>
+            <p>🔍 <strong>Scraping Targets:</strong> product-card, product-title, product-price, product-category, product-rating, product-stock</p>
+            <p>🔄 <strong>Last Updated:</strong> 2024-02-15 | Generated for ETL Pipeline Testing</p>
+        </footer>
+    </div>
+
+    <!-- Hidden data for additional scraping tests -->
+    <div style="display: none;">
+        <div id="metadata">
+            <span data-version="2.1" data-timestamp="2024-02-15T10:30:00Z"></span>
+            <span data-total-products="12" data-avg-rating="4.2"></span>
+            <span data-price-range="$49.99 - $2,499.99"></span>
+        </div>
+        <script type="application/json">
+            {
+                "store": "Sample E-Commerce",
+                "currency": "USD",
+                "categories": ["Electronics", "Fashion", "Books", "Home", "Fitness", "Kitchen", "Gaming", "Furniture", "Beauty", "Automotive"],
+                "stats": {
+                    "total_products": 12,
+                    "in_stock": 8,
+                    "low_stock": 4,
+                    "on_sale": 3,
+                    "featured": 2
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

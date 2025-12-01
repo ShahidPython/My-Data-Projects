@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+logs/*.log
+data/output/
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration secrets
+config_secret.yaml
+.env
+*.key
+
+# Data files
+*.csv
+*.json
+*.xlsx
+*.parquet
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md
