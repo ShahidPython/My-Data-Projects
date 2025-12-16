@@ -1,0 +1,12 @@
+pandas
+numpy
+scipy
+pydantic
+python-dateutil
+pyyaml
+openpyxl
+python-dotenv
+sqlalchemy
+great-expectations
+plotly
+streamlit

@@ -1,0 +1,15 @@
+pytest
+pytest-cov
+pytest-mock
+black
+flake8
+mypy
+pre-commit
+ipython
+jupyter
+notebook
+tox
+coverage
+sphinx
+twine
+build

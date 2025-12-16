@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enterprise-data-cleansing"
+version = "2.1.0"
+description = "Production-grade data cleaning and validation pipeline"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Data Engineering Team", email = "data-engineering@company.com"}
+]
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "pydantic>=2.0.0",
+    "python-dateutil>=2.8.2",
+    "pyyaml>=6.0",
+    "openpyxl>=3.1.0",
+    "python-dotenv>=1.0.0",
+    "sqlalchemy>=2.0.0",
+    "great-expectations>=0.18.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+dashboard = [
+    "streamlit>=1.24.0",
+    "plotly>=5.15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/company/data-cleansing-pipeline"
+Documentation = "https://data-cleansing-pipeline.readthedocs.io/"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"

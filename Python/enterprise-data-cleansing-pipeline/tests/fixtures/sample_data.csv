@@ -1,0 +1,16 @@
+transaction_id,customer_id,transaction_date,amount,product,region,email,phone
+100001,CUST-100001,2024-01-15 09:30:15,149.99,Widget A,North America,john.doe@company.com,+1-555-0123
+100002,CUST-100002,2024-01-15 10:15:22,89.5,Widget B,Europe,jane.smith@gmail.com,5559876543
+100003,,01-15-2024 11:05,24.99,Widget C,Asia,not_an_email,
+100004,CUST-100004,2024-01-15 12:30:18,-199.99,Widget D,NA,jim@company,5555555555
+100005,CUST-100005,2024-01-15 13:45:33,1000000,Widget E,Africa,test@test.com,123456
+100006,CUST-100006,2024-01-14 14:20:47,75,Widget A,Europe,duplicate@email.com,+44 20 7946 0958
+100007,CUST-100007,2024-01-15 15:10:12,75,Widget A,Europe,duplicate@email.com,+44 20 7946 0958
+100008,CUST-100008,2024-01-16 08:30:05,250,Widget F,South America,maria@company.co,
+100009,CUST-100009,2024/01/15 09:00:00,ABC,Widget G,Australia,alice@company.com,61298765432
+100010,CUST-100010,2024-01-15 16:45:28,,Widget H,Antarctica,bob@company.com,
+100011,CUST-100011,2024-01-15 17:30:00,1000,Widget I,North America,large@transaction.com,+1-800-1234567
+100012,CUST-100012,2024-01-15 18:15:00,50,Widget J,Europe,normal@email.com,33123456789
+100013,CUST-100013,2024-01-15 19:00:00,25,Widget K,Asia,another@email.com,81123456789
+100014,CUST-100014,2024-01-15 20:45:00,300,Widget L,Australia,valid@company.com,61412345678
+100015,CUST-100015,2024-01-15 21:30:00,150,Widget M,Africa,test2@test.com,27123456789

@@ -1,0 +1,10 @@
+{
+  "Widget A": {"category": "Electronics", "price_range": "mid"},
+  "Widget B": {"category": "Home", "price_range": "low"},
+  "Widget C": {"category": "Office", "price_range": "low"},
+  "Widget D": {"category": "Electronics", "price_range": "high"},
+  "Widget E": {"category": "Luxury", "price_range": "premium"},
+  "Widget F": {"category": "Home", "price_range": "mid"},
+  "Widget G": {"category": "Office", "price_range": "mid"},
+  "Widget H": {"category": "Outdoor", "price_range": "high"}
+}

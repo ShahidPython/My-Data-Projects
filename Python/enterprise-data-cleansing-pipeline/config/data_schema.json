@@ -1,0 +1,86 @@
+{
+  "schema_name": "enterprise_transactions_v3",
+  "domain": "retail_finance",
+  "enforced_since": "2024-01-01",
+  "columns": {
+    "transaction_id": {
+      "data_type": "INTEGER",
+      "nullable": false,
+      "primary_key": true,
+      "description": "Unique transaction identifier",
+      "validation": "BETWEEN 100000 AND 999999"
+    },
+    "customer_id": {
+      "data_type": "VARCHAR(20)",
+      "nullable": false,
+      "pattern": "^CUST-\\d{6}$",
+      "description": "Customer identifier with prefix"
+    },
+    "transaction_timestamp": {
+      "data_type": "TIMESTAMP",
+      "nullable": false,
+      "timezone": "UTC",
+      "description": "Exact time of transaction",
+      "validation": ">= '2020-01-01'"
+    },
+    "transaction_type": {
+      "data_type": "ENUM",
+      "allowed_values": ["purchase", "refund", "exchange", "void"],
+      "nullable": false,
+      "description": "Type of transaction"
+    },
+    "product_sku": {
+      "data_type": "VARCHAR(50)",
+      "nullable": false,
+      "foreign_key": "inventory.sku"
+    },
+    "quantity": {
+      "data_type": "INTEGER",
+      "nullable": false,
+      "validation": "> 0 AND <= 1000",
+      "description": "Units purchased"
+    },
+    "unit_price": {
+      "data_type": "DECIMAL(12,2)",
+      "nullable": false,
+      "validation": ">= 0.01 AND <= 100000",
+      "description": "Price per unit in USD"
+    },
+    "discount_amount": {
+      "data_type": "DECIMAL(12,2)",
+      "nullable": true,
+      "default": 0.00,
+      "validation": ">= 0 AND <= unit_price * quantity"
+    },
+    "tax_amount": {
+      "data_type": "DECIMAL(10,2)",
+      "nullable": false,
+      "calculated": "(unit_price * quantity - discount_amount) * tax_rate",
+      "validation": ">= 0"
+    },
+    "total_amount": {
+      "data_type": "DECIMAL(14,2)",
+      "nullable": false,
+      "calculated": "unit_price * quantity - discount_amount + tax_amount",
+      "validation": "> 0"
+    },
+    "payment_method": {
+      "data_type": "ENUM",
+      "allowed_values": ["credit_card", "debit_card", "paypal", "bank_transfer"],
+      "nullable": false
+    },
+    "fraud_score": {
+      "data_type": "FLOAT",
+      "nullable": true,
+      "validation": "BETWEEN 0 AND 1",
+      "description": "ML model fraud probability"
+    }
+  },
+  "composite_keys": [
+    ["transaction_id", "customer_id"]
+  ],
+  "foreign_keys": {
+    "product_sku": {"table": "inventory", "column": "sku"},
+    "customer_id": {"table": "customers", "column": "customer_id"}
+  }
+}

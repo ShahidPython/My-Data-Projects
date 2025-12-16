@@ -1,0 +1,119 @@
+/* Main dashboard styling */
+.stApp {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Header styling */
+h1, h2, h3 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Metric cards */
+.css-1r6slb0 {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+}
+
+/* Button styling */
+.stButton > button {
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Tab styling */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px;
+    color: white;
+}
+
+.stTabs [aria-selected="true"] {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* Dataframe styling */
+.dataframe {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* File uploader */
+.stFileUploader {
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar */
+.css-1d391kg {
+    background: rgba(30, 30, 30, 0.9) !important;
+}
+
+/* Success/Error messages */
+.stAlert {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Plotly chart containers */
+.js-plotly-plot {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* Metric value emphasis */
+[data-testid="stMetricValue"] {
+    font-size: 2.5rem !important;
+    color: #4ECDC4 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Input fields */
+.stTextInput > div > div > input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 10px;
+}
+
+.stTextInput > div > div > input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Select boxes */
+.stSelectbox > div > div {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 10px;
+}
+
+/* Progress bar */
+.stProgress > div > div > div > div {
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+}

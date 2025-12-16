@@ -1,0 +1,44 @@
+{
+  "version": "2.1.0",
+  "last_updated": "2024-01-15T14:30:00Z",
+  "author": "Data Engineering Team",
+  "rules": {
+    "missing_values": {
+      "strategy": "business_logic_imputation",
+      "threshold": 0.3,
+      "actions": {
+        "customer_id": {"action": "drop_row", "reason": "Primary key missing"},
+        "transaction_amount": {"action": "mean_imputation", "group_by": ["customer_segment", "region"]},
+        "product_category": {"action": "mode_imputation", "group_by": ["sales_channel"]},
+        "purchase_date": {"action": "forward_fill", "order_by": "customer_id, transaction_sequence"},
+        "email": {"action": "regex_validation", "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"},
+        "phone_number": {"action": "format_standardization", "format": "E.164"}
+      }
+    },
+    "outlier_detection": {
+      "method": "modified_zscore",
+      "threshold": 3.5,
+      "fields": ["transaction_amount", "unit_price", "quantity"],
+      "exceptions": ["customer_segment == 'enterprise'", "product_type == 'bulk_order'"]
+    },
+    "data_type_enforcement": {
+      "transaction_id": {"type": "int", "min": 100000, "max": 999999},
+      "customer_id": {"type": "str", "pattern": "CUST-\\d{6}"},
+      "transaction_date": {"type": "datetime", "format": "%Y-%m-%d %H:%M:%S"},
+      "amount": {"type": "decimal", "precision": 10, "scale": 2},
+      "currency": {"type": "categorical", "allowed_values": ["USD", "EUR", "GBP", "JPY"]}
+    },
+    "business_rules": {
+      "revenue_validation": "unit_price * quantity - discount == net_amount",
+      "date_consistency": "ship_date >= order_date",
+      "customer_lifetime": "first_purchase_date <= last_purchase_date",
+      "inventory_logic": "quantity_sold <= quantity_in_stock + quantity_ordered"
+    },
+    "deduplication": {
+      "method": "probabilistic",
+      "fields": ["customer_email", "customer_phone", "customer_name"],
+      "similarity_threshold": 0.85,
+      "survivorship_rules": "max(transaction_date), max(updated_at)"
+    }
+  }
+}

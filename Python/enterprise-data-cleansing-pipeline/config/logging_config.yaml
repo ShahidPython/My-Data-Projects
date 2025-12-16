@@ -1,0 +1,72 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  detailed:
+    format: '%(asctime)s | %(levelname)-8s | %(name)-25s | %(filename)s:%(lineno)d | %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+  json:
+    format: '{"timestamp": "%(asctime)s", "level": "%(levelname)s", "logger": "%(name)s", "file": "%(filename)s", "line": %(lineno)d, "message": "%(message)s", "correlation_id": "%(correlation_id)s"}'
+    class: pythonjsonlogger.jsonlogger.JsonFormatter
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: detailed
+    stream: ext://sys.stdout
+
+  file_handler:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: DEBUG
+    formatter: detailed
+    filename: logs/data_pipeline.log
+    when: 'midnight'
+    interval: 1
+    backupCount: 30
+    encoding: utf8
+
+  error_file:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: detailed
+    filename: logs/errors.log
+    maxBytes: 10485760
+    backupCount: 10
+    encoding: utf8
+
+  audit_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: json
+    filename: logs/audit_trail.json.log
+    maxBytes: 5242880
+    backupCount: 20
+    encoding: utf8
+
+  metrics_handler:
+    class: logging.handlers.SocketHandler
+    level: INFO
+    host: localhost
+    port: 9020
+    formatter: json
+
+loggers:
+  data_pipeline:
+    level: DEBUG
+    handlers: [console, file_handler, audit_handler]
+    propagate: false
+
+  validation:
+    level: INFO
+    handlers: [console, file_handler]
+    propagate: false
+
+  alerting:
+    level: WARNING
+    handlers: [error_file, metrics_handler]
+    propagate: false
+
+root:
+  level: WARNING
+  handlers: [console]
