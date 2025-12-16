@@ -1,0 +1,14 @@
+{
+    "Images": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".bmp", ".tiff", ".heic"],
+    "Documents": [".pdf", ".doc", ".docx", ".txt", ".rtf", ".odt", ".pptx", ".ppt", ".xlsx", ".xls", ".csv", ".json", ".xml", ".md"],
+    "Audio": [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac", ".wma"],
+    "Videos": [".mp4", ".mkv", ".avi", ".mov", ".flv", ".wmv", ".webm", ".mpeg"],
+    "Archives": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz", ".iso"],
+    "Code": [".py", ".js", ".html", ".css", ".java", ".cpp", ".c", ".php", ".sh", ".bat", ".ps1", ".sql"],
+    "Executables": [".exe", ".msi", ".dmg", ".pkg", ".deb", ".rpm", ".apk"],
+    "Fonts": [".ttf", ".otf", ".woff", ".woff2"],
+    "Design": [".psd", ".ai", ".xd", ".fig", ".sketch"],
+    "Database": [".db", ".sqlite", ".mdb", ".accdb"],
+    "Torrents": [".torrent"],
+    "Ebooks": [".epub", ".mobi", ".azw3"]
+}

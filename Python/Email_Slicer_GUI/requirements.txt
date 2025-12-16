@@ -1,0 +1,5 @@
+questionary>=1.10.0
+typer>=0.9.0
+rich>=13.0.0
+email-validator>=1.3.0
+tldextract>=3.4.0

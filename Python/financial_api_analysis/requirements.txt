@@ -1,0 +1,11 @@
+yfinance
+pandas
+numpy
+matplotlib
+seaborn
+reportlab
+requests
+python-dotenv
+pyarrow
+scipy
+pandas-datareader
