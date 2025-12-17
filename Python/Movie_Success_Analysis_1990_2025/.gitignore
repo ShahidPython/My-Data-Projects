@@ -1,0 +1,59 @@
+# Data files - NEVER upload large data
+*.csv
+*.pkl
+*.pkl.gz
+*.feather
+*.parquet
+*.h5
+*.hdf5
+
+# Generated outputs - recreate with scripts
+results/
+logs/
+output/
+models/
+
+# Virtual environment
+venv/
+.env
+.env.local
+.virtualenv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+python.exe
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS files
+*.log
+*.sqlite3
+*.sqlite
+*.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation
+_site/
+.sass-cache/
+
+# Project specific
+data/raw/
+data/processed/
+notebooks/.ipynb_checkpoints/

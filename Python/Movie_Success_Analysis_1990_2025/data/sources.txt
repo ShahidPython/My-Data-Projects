@@ -1,0 +1,6 @@
+Data Source: Wikipedia Movie Data (prust/wikipedia-movie-data)
+URL: https://github.com/prust/wikipedia-movie-data
+Files Used: movies-2020s.json, movies-2010s.json, movies-2000s.json
+Period: 1990-2025
+Extraction Method: API curl command with Python processing
+Date Retrieved: Wednesday, December 17, 2025

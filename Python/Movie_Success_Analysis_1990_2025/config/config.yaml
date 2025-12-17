@@ -1,0 +1,75 @@
+# Project Configuration
+project:
+  name: "Movie Success Analysis"
+  version: "1.0.0"
+  description: "Predictive analysis of movie production trends (1990-2025)"
+
+# Data Configuration
+data:
+  raw:
+    path: "data/raw/movies_1990_2025.csv"
+    columns:
+      required: ["title", "year", "genres"]
+      optional: ["director", "cast", "plot", "notes"]
+  processed:
+    path: "data/processed/movies_engineered.csv"
+    save_intermediate: true
+
+# Model Configuration
+model:
+  type: "random_forest"
+  random_state: 42
+  test_size: 0.2
+  hyperparameters:
+    random_forest:
+      n_estimators: 200
+      max_depth: 10
+      min_samples_split: 5
+      min_samples_leaf: 2
+      class_weight: "balanced"
+    gradient_boosting:
+      n_estimators: 150
+      learning_rate: 0.1
+      max_depth: 5
+
+# Feature Engineering
+features:
+  numeric:
+    - "year"
+    - "genre_count"
+    - "cast_size"
+    - "title_length"
+    - "title_word_count"
+    - "years_since_1990"
+  categorical:
+    - "release_era"
+    - "has_director"
+  target:
+    success_threshold: 0.75  # Top 25% considered successful
+
+# Visualization
+visualization:
+  style: "seaborn-darkgrid"
+  figsize:
+    large: [16, 8]
+    medium: [12, 6]
+    small: [8, 4]
+  colors:
+    primary: "#2E86AB"
+    secondary: "#A23B72"
+    accent: "#F6F5F5"
+  dpi: 300
+
+# Paths
+paths:
+  results: "results/"
+  figures: "results/figures/"
+  tables: "results/tables/"
+  models: "results/model_performance.pkl"
+
+# Dashboard
+dashboard:
+  port: 8050
+  host: "0.0.0.0"
+  debug: false
+  theme: "dark"
